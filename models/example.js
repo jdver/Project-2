@@ -22,10 +22,10 @@ class Example {
    * @returns Promise
    * @memberof Example
    */
-  findAll () {
-    return knex.select()
-      .table(this.table)
-  }
+  // findAll () {
+  //   return knex.select()
+  //     .table(this.table)
+  // }
 
   /**
  * create a new record
