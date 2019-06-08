@@ -1,5 +1,6 @@
 // Dependecies
 const Example = require('../models/example')
+var path = require('path')
 
 /**
  * htmlRoutes: This routes file renders views e.g. handlebars pages
@@ -10,13 +11,15 @@ const Example = require('../models/example')
 module.exports = function (app) {
   // Load index page
   app.get('/', function (req, res) {
-    Example.findAll({})
-      .then(function (dbExamples) {
-        res.render('index', {
-          msg: 'Welcome!',
-          examples: dbExamples
-        })
-      })
+    res.sendFile(path.join(__dirname, '../public/html/home.html'))
+    // res.render('index')
+    // Example.findAll({})
+    //   .then(function (dbExamples) {
+    //     res.render('index', {
+    //       msg: 'Welcome!',
+    //       examples: dbExamples
+    //     })
+    //   })
   })
 
   // Load example page and pass in an example by id
