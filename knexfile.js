@@ -1,44 +1,36 @@
-// Update with your config settings.
-
 module.exports = {
 
   development: {
     client: 'mysql',
     connection: {
-      filename: './dev.mysql'
+      host: 'localhost',
+      port: 3306,
+      user: 'nodeUser',
+      password: '',
+      database: 'goodQuotes_DB',
+      debug: ['ComQueryPacket', 'RowDataPacket']
     }
   },
 
   staging: {
     client: 'mysql',
     connection: {
-      database: 'quotes_db',
-      user: 'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'quotes_migrations'
+      host: 'localhost',
+      port: 3306,
+      user: 'root',
+      password: '',
+      database: 'testdb',
+      debug: ['ComQueryPacket', 'RowDataPacket']
     }
   },
 
   production: {
     client: 'mysql',
     connection: {
-      database: 'quotes_db',
-      user: 'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'quotes'
+      host: 'erxv1bzckceve5lh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+      user: 'exyuw99kxg5oro1n',
+      password: 'mgvqltdhspxpx2x5',
+      database: 'nm46ap8es9ktcn2r'
     }
   }
-
 }
