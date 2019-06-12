@@ -12,7 +12,7 @@ const knex = require('../config/connection.js')
  * @class Example
  */
 class Example {
-  constructor (table = 'example') {
+  constructor (table = 'movies') {
     this.table = table
   }
 
@@ -22,10 +22,10 @@ class Example {
    * @returns Promise
    * @memberof Example
    */
-  // findAll () {
-  //   return knex.select()
-  //     .table(this.table)
-  // }
+  findAll () {
+    return knex.select()
+      .table(this.table)
+  }
 
   /**
  * create a new record
