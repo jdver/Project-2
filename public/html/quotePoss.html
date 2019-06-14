@@ -8,24 +8,48 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../styles/styles.css">
   </head>
   <body>
     
     <!-- Creating a header div with a title inside -->
     <div class="container-fluid">
-        <div class="title">Quote Possibilities</div>
+        <h1 class="ml5">
+            <span class="text-wrapper">
+                <span class="line line1"></span>
+                <span class="letters-left">Quote Possibilities</span>
+                <span class="line line2"></span>
+            </span>
+        </h1>
     </div>
 
+    <!-- Displaying the quote options if just part of the quote is searched -->
+    <div class="card">
+          <h5 class="card-title">DISPLAY QUOTE HERE</h5>
+          <p class="card-text">
+              Origin: DISPLAY ORIGIN HERE <br>
+              Speaker: DISPLAY SPEAKER HERE <br>
+              Artist: DISPLAY ARTIST HERE <br>
+              Category: DISPLAY CATEGORY HERE <br>                           
+          </p>
+          <a href="quote.html" id="selectQuote" class="btn btn-secondary">Select</a>
+        </div>
+      </div>
+
     <!-- Creating buttons to add a quote or search another quote -->
-    <button type="button" class="btn btn-primary btn btn-block">Add Another Quote!</button>
-    <button type="button" class="btn btn-primary btn btn-block">Search A Quote!</button>
+    <div id="quotesButtons" class="container">
+        <button type="button" id="add" class="btn btn-secondary btn btn-block">Add A Quote!</button>
+        <button type="button" class="btn btn-secondary btn btn-block">Search Another Quote!</button>
+    </div>
 
     <!-- Creating a modal if "add quote" button is clicked -->
     <div class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
+                    <h5 class="modal-title">Add A Quote</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -57,8 +81,44 @@
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- New Technology Anime CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+    <!-- Javascript code for anime -->
+    <script type="text/javascript">
+        anime.timeline({ autoplay: true })
+            .add({
+                targets: '.ml5 .line',
+                opacity: [0.5, 1],
+                scaleX: [0, 1],
+                duration: 700
+            }).add({
+                targets: '.ml5 .line',
+                translateY: function (e, i, l) {
+                    var offset = -0.7 + 0.7 * 2 * i;
+                    // var offset = -0.625 + 0.625 * 2 * i;
+                    return offset + "em";
+                }
+            }).add({
+                targets: '.ml5 .letters-left',
+                opacity: [0, 1],
+                translateX: ["0.5em", 0],
+                offset: '-=300'
+            }).add({
+                targets: '.ml5',
+                opacity: 0,
+                duration: Infinity,
+                delay: 1000
+            });
+
+        // modal
+        $("#add").on("click", function () {
+            $(".modal").modal("toggle");
+        });
+    </script>
   </body>
 </html>

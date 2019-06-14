@@ -2,6 +2,7 @@
   line-height: 2.5;
 }
 
+/* Styling for the header */
 .ml5 {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -11,6 +12,7 @@
   color: #402d2d;
 }
 
+/* Styling for the header and the info inside */
 .ml5 .text-wrapper {
   position: relative;
   display: inline-block;
@@ -20,6 +22,7 @@
   line-height: 1em;
 }
 
+/* Styling for the header and the lines*/
 .ml5 .line {
   position: absolute;
   left: 0;
@@ -32,7 +35,61 @@
   transform-origin: 0.5 0;
 }
 
+/* Styling for the header and letters*/
 .ml5 .letters {
   display: inline-block;
   opacity: 0;
+}
+
+/* Styling for the header to be centered */
+.container-fluid {
+  text-align: center;
+}
+
+/* Styling for the input bar */
+#homeInput {
+  width: 50%;
+  margin: 0 auto;
+}
+
+/* Styling for the search/add buttons on the home page */
+#homeButtons {
+  width: 18%;
+  margin: 0 auto;
+  padding-top: 15px;
+}
+
+/* Styling for the displaying quote info */
+#quoteInfo {
+  padding-top: 25px;
+}
+
+/* Styling for the links on the Quote page */
+#quoteLinks {
+  text-align: center;
+  padding-top: 50px;
+}
+
+/* Styling for the add/search buttons on the quote page */
+#quoteButtons {
+  width: 25%;
+}
+
+/* Styling for the add/search buttons on the quote possibility page */
+#quotesButtons {
+  width: 25%;
+  padding-top: 50px;
+}
+
+/* Styling for the card for the different quotes to choose from */
+.card {
+  width: 75%;
+  margin: auto;
+  border: none;
+  padding-top: 35px;
+}
+
+/* Styling for the button in the card */
+#selectQuote {
+  margin-right: 75%;
 }
