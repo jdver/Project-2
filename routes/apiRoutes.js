@@ -25,6 +25,15 @@ module.exports = function (app) {
       })
   })
 
+  // Get any quotes that include a query word
+  app.get('/api/searchbyword/:query', function (req, res) {
+    var query = req.params.query
+    Example.findQuoteByWord(query)
+      .then(function (dbExamples) {
+        res.json(dbExamples)
+      })
+  })
+
   // Create a new example
   app.post('/api/examples', function (req, res) {
     Example.create(req.body)
