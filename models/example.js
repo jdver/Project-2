@@ -27,15 +27,15 @@ class Example {
       .table(this.table)
   }
 
-  // /**
-  //  *
-  //  * Find one Example in the table by id
-  //  * @returns Promise
-  //  * @memberof Example
-  //  */
-  // findOne () {
-  //   return knex(this.table).returning('id')
-  // }
+  /**
+   *
+   * Find one Example in the table by id
+   * @returns Promise
+   * @memberof Example
+   */
+  findQuoteByWord (query) {
+    return knex(this.table).where('quote', 'like', `%${query}%`)
+  }
 
   /**
  * create a new record
