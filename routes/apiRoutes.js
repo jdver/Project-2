@@ -16,6 +16,14 @@ module.exports = function (app) {
         res.json(dbExamples)
       })
   })
+  // Get a single quote by typing the quote id into the url
+  app.get('/api/examples/:id', function (req, res) {
+    Example.findAll()
+      .then(function (dbExamples) {
+        var quoteID = req.params.id
+        res.json(dbExamples[quoteID])
+      })
+  })
 
   // Create a new example
   app.post('/api/examples', function (req, res) {

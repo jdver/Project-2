@@ -27,6 +27,16 @@ class Example {
       .table(this.table)
   }
 
+  // /**
+  //  *
+  //  * Find one Example in the table by id
+  //  * @returns Promise
+  //  * @memberof Example
+  //  */
+  // findOne () {
+  //   return knex(this.table).returning('id')
+  // }
+
   /**
  * create a new record
  *
