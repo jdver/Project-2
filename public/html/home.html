@@ -69,7 +69,8 @@
                     </div>
                     <label for="enterOrigin">Enter the quote's origin</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="enterOrigin" placeholder="Where is the quote from? e.g. The Matrix">
+                        <input type="text" class="form-control" id="enterOrigin"
+                            placeholder="Where is the quote from? e.g. The Matrix">
                     </div>
                     <label for="enterSpeaker">Enter who said it</label>
                     <div class="form-group">
@@ -77,7 +78,8 @@
                     </div>
                     <label for="enterArtist">Enter who said it (optional)</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="enterArtist" placeholder="What actor/actress played that character?">
+                        <input type="text" class="form-control" id="enterArtist"
+                            placeholder="What actor/actress played that character?">
                     </div>
                     <div class="form-group">
                         <label for="enterCategory">Choose a Category</label>
@@ -91,7 +93,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary">Submit</button>
+                    <button type="button" id="submit" class="btn btn-secondary">Submit</button>
                 </div>
             </div>
         </div>
@@ -99,10 +101,16 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
     <!-- New Technology Anime CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
@@ -132,11 +140,37 @@
                 duration: Infinity,
                 delay: 1000
             });
-        
+
         // modal
         $("#add").on("click", function () {
             $(".modal").modal("toggle");
         });
+
+        document.querySelector('#submit').addEventListener('click', function () {
+
+            //   Make a newQuote object
+            var newQuote = {
+                Quote: document.querySelector('#enterQuote').value.trim(),
+                Origin: document.querySelector('#enterOrigin').value.trim(),
+                Speaker: document.querySelector('#enterSpeaker').value.trim(),
+                Artist: document.querySelector('#enterArtist').value.trim(),
+                Category: document.querySelector('#enterCategory').value.trim()
+            }
+            console.log(newQuote)
+            
+            // Send POST request.
+            fetch('/api/newQuote', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newQuote)
+            })
+                // then run the following code
+                .then(function (data) {
+                    // Log data
+                    console.log(data)
+                })
+
+        })
     </script>
 
     <script src="js/index.js" type="text/javascript"></script>
