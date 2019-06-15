@@ -21,7 +21,14 @@ module.exports = function (app) {
     //     })
     //   })
   })
-
+  // Load quote possibilities page if the data we get back is length >1
+  app.get('/possiblequotes', function (req, res) {
+    res.sendFile(path.join(__dirname, '../public/html/quotePoss.html'))
+  })
+  // Load quote page (if exact match?)
+  app.get('/quote', function (req, res) {
+    res.sendFile(path.join(__dirname, '../public/html/quote.html'))
+  })
   // Load example page and pass in an example by id
   app.get('/example/:id', function (req, res) {
     Example.findOne({ where: { id: req.params.id } })
