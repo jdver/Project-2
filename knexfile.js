@@ -7,7 +7,7 @@ module.exports = {
       port: 3306,
       user: 'nodeUser',
       password: '',
-      database: 'goodQuotes_DB',
+      database: 'goodquotestest_DB',
       debug: ['ComQueryPacket', 'RowDataPacket']
     }
   },
