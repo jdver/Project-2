@@ -37,6 +37,13 @@ module.exports = function (app) {
   // Create a new example
   app.post('/api/examples', function (req, res) {
     Example.create(req.body)
+      .then(function (newQuote) {
+        res.json(newQuote)
+      })
+  })
+
+  app.post('/api/newQuote', function (req, res) {
+    Example.create(req.body)
       .then(function (dbExample) {
         res.json(dbExample)
       })

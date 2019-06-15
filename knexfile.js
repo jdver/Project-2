@@ -27,10 +27,10 @@ module.exports = {
   production: {
     client: 'mysql',
     connection: {
-      host: 'erxv1bzckceve5lh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-      user: 'exyuw99kxg5oro1n',
-      password: 'mgvqltdhspxpx2x5',
-      database: 'nm46ap8es9ktcn2r'
+      host: 'localhost',
+      user: 'nodeUser',
+      password: '',
+      database: 'goodQuotes_DB'
     }
   }
 }
