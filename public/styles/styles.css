@@ -60,7 +60,7 @@
 }
 
 /* Styling for the displaying quote info */
-#quoteInfo {
+.quoteInfo {
   padding-top: 25px;
 }
 
