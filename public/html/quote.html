@@ -146,6 +146,38 @@
         $("#searchAnother").on("click", function () {
             window.location.pathname = '/'
         });
+
+        document.querySelector('#submit').addEventListener('click', function () {
+
+            //   Make a newQuote object
+            var newQuote = {
+                Quote: document.querySelector('#enterQuote').value.trim(),
+                Origin: document.querySelector('#enterOrigin').value.trim(),
+                Speaker: document.querySelector('#enterSpeaker').value.trim(),
+                Artist: document.querySelector('#enterArtist').value.trim(),
+                Category: document.querySelector('#enterCategory').value.trim()
+            }
+            console.log(newQuote)
+
+            // Send POST request.
+            fetch('/api/newQuote', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newQuote)
+            })
+                // then run the following code
+                .then(function (data) {
+                    // Log data
+                    console.log(data)
+                })
+
+            document.querySelector('#enterQuote').value = ""
+            document.querySelector('#enterOrigin').value = ""
+            document.querySelector('#enterSpeaker').value = ""
+            document.querySelector('#enterArtist').value = ""
+            document.querySelector('#enterCategory').value = ""
+        })
+
     </script>
 </body>
 
