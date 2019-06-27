@@ -53,7 +53,7 @@
     </div>
 
     <!-- Creating a modal if "add quote" button is clicked -->
-    <div class="modal" tabindex="-1" role="dialog">
+    <div class="modal" id="resultModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -142,8 +142,9 @@
             });
 
         // modal
-        $("#add").on("click", function () {
-            $(".modal").modal("toggle");
+        document.querySelector('#add').addEventListener('click', function () {
+            document.querySelector('#add').setAttribute('data-toggle', 'modal')
+            document.querySelector('#add').setAttribute('data-target', '#resultModal')
         });
 
         document.querySelector('#submit').addEventListener('click', function () {
